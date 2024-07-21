@@ -75,7 +75,9 @@ const App: React.FC = () => {
         return (
           <div key={key}>
             <label>{key}</label>
-            <ColorPicker onColorChange={(color) => handleColorChange(key, color)} />
+            <ColorPicker 
+              defaultColor={themeData[key]}
+              onColorChange={(color) => handleColorChange(key, color)} />
           </div>
         );
       case 'image':
@@ -115,8 +117,11 @@ const App: React.FC = () => {
     <div className="App">
       {blueprint ? (
         <div>
+            <h2>coloring</h2>
           {Object.entries(blueprint.colors).map(([key, value]) => renderElement(key, value.type))}
+            <h2>images</h2>
           {Object.entries(blueprint.images).map(([key, value]) => renderElement(key, value.type))}
+            <h2>properties</h2>
           {Object.entries(blueprint.properties).map(([key, value]) => renderElement(key, value.type))}
         </div>
       ) : (

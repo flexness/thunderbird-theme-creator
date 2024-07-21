@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 
 interface ColorPickerProps {
+  defaultColor: string;
   onColorChange: (color: string) => void;
 }
 
-const ColorPicker: React.FC<ColorPickerProps> = ({ onColorChange }) => {
-  const [color, setColor] = useState<string>('#ffffff');
+const ColorPicker: React.FC<ColorPickerProps> = ({ defaultColor, onColorChange }) => {
+  const [color, setColor] = useState<string>(defaultColor);
+
+  useEffect(() => {
+    setColor(defaultColor);
+  }, [defaultColor]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColor(e.target.value);
