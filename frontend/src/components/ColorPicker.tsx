@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface ColorPickerProps {
   defaultColor: string;
@@ -6,10 +6,10 @@ interface ColorPickerProps {
 }
 
 const ColorPicker: React.FC<ColorPickerProps> = ({ defaultColor, onColorChange }) => {
-  const [color, setColor] = useState<string>(defaultColor);
+  const [color, setColor] = useState<string>(defaultColor || '#ffffff');
 
   useEffect(() => {
-    setColor(defaultColor);
+    setColor(defaultColor || '#ffffff');
   }, [defaultColor]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

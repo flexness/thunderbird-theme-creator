@@ -1,16 +1,15 @@
 import React from 'react';
 
 interface ToolbarProps {
-  backgroundColor: string;
-  textColor: string;
+  style: React.CSSProperties;
 }
 
-const Toolbar: React.FC<ToolbarProps> = ({ backgroundColor, textColor }) => {
-  return (
-    <div style={{ backgroundColor, color: textColor, padding: '10px' }}>
-      Toolbar
-    </div>
-  );
-};
+const Toolbar: React.FC<ToolbarProps> = ({ style }) => (
+  <div className="toolbar" style={style}>
+    <nav>
+      NAV
+    </nav>
+  </div>
+);
 
 export default Toolbar;

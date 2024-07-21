@@ -8,7 +8,7 @@ const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const router = (0, express_1.Router)();
 router.get('/', (req, res) => {
-    const blueprintPath = path_1.default.join(__dirname, '../../../theme-blueprint.json'); // Adjust path to root
+    const blueprintPath = path_1.default.join(__dirname, '../../../theme-blueprint.json');
     fs_1.default.readFile(blueprintPath, 'utf8', (err, data) => {
         if (err) {
             return res.status(500).send({ error: 'Failed to load blueprint' });

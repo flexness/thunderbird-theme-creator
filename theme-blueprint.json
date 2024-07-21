@@ -1,9 +1,47 @@
 {
+  "layout": {
+    "main": {
+      "type": "container",
+      "children": ["toolbar", "tabs", "content", "statusBar"]
+    },
+    "toolbar": {
+      "type": "component",
+      "componentType": "Toolbar"
+    },
+    "tabs": {
+      "type": "container",
+      "children": ["tab1", "tab2"]
+    },
+    "tab1": {
+      "type": "component",
+      "componentType": "Tab"
+    },
+    "tab2": {
+      "type": "component",
+      "componentType": "Tab"
+    },
+    "content": {
+      "type": "container",
+      "children": ["sidebar", "messagePane"]
+    },
+    "sidebar": {
+      "type": "component",
+      "componentType": "Sidebar"
+    },
+    "messagePane": {
+      "type": "component",
+      "componentType": "MessagePane"
+    },
+    "statusBar": {
+      "type": "component",
+      "componentType": "Statusbar"
+    }
+  },
   "colors": {
     "frame": { "type": "color", "default": "#ffffff" },
     "frame_inactive": { "type": "color", "default": "#cccccc" },
     "frame_attention": { "type": "color", "default": "#ff0000" },
-    "tab_background_text": { "type": "color", "default": "#000000" },
+    "tab_background_text": { "type": "color", "default": "#ff0000" },
     "tab_loading": { "type": "color", "default": "#00ff00" },
     "tab_selected": { "type": "color", "default": "#dddddd" },
     "tab_text": { "type": "color", "default": "#000000" },
@@ -33,12 +71,7 @@
   },
   "images": {
     "headerURL": { "type": "image", "default": "" },
-    "theme_frame": { "type": "image", "default": "" },
-    "additional_backgrounds": { "type": "image", "default": "" },
-    "tab_background_separator": { "type": "image", "default": "" },
-    "tab_background_text": { "type": "image", "default": "" },
-    "toolbar_field": { "type": "image", "default": "" },
-    "toolbar_field_focus": { "type": "image", "default": "" }
+    "additional_backgrounds": { "type": "image", "default": "" }
   },
   "properties": {
     "additional_backgrounds_alignment": { "type": "select", "default": "center" },

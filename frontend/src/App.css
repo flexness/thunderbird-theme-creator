@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #ccc;
+    border: 1px dashed #ccc;
     border-radius: 4px;
     text-align: center;
   }
