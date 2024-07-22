@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Toolbar from './components/Toolbar';
-import Tab from './components/Tab';
 import Sidebar from './components/Sidebar';
-import MessagePane from './components/MessagePane';
-import Statusbar from './components/Statusbar';
-import ColorPicker from './components/ColorPicker';
-import ImageUploader from './components/ImageUploader';
-import SelectInput from './components/SelectInput';
 import './App.css';
 
 interface ThemeValue {
@@ -21,11 +14,7 @@ interface ThemeBlueprint {
   layout: any;
 }
 
-interface LayoutItem {
-  type: string;
-  componentType?: string;
-  children?: string[];
-}
+
 
 const App: React.FC = () => {
   const [themeData, setThemeData] = useState<Record<string, any>>({});
@@ -40,70 +29,70 @@ const App: React.FC = () => {
         return response.json();
       })
       .then((data: ThemeBlueprint) => {
+        console.log('Fetched blueprint:', data);
         setBlueprint(data);
         const initialThemeData: Record<string, any> = {};
         Object.entries(data.colors).forEach(([key, value]) => {
-          initialThemeData[key] = (value as ThemeValue).default;
+          initialThemeData[key] = value.default;
         });
         Object.entries(data.images).forEach(([key, value]) => {
-          initialThemeData[key] = (value as ThemeValue).default;
+          initialThemeData[key] = value.default;
         });
         Object.entries(data.properties).forEach(([key, value]) => {
-          initialThemeData[key] = (value as ThemeValue).default;
+          initialThemeData[key] = value.default;
         });
+        console.log('Initial theme data:', initialThemeData);
         setThemeData(initialThemeData);
       })
       .catch(error => console.error('Error fetching blueprint:', error));
   }, []);
 
   const handleColorChange = (key: string, color: string) => {
-    setThemeData(prev => ({ ...prev, [key]: color }));
+    setThemeData(prev => {
+      const newData = { ...prev, [key]: color };
+      console.log('Updated themeData:', newData);
+      return newData;
+    });
   };
 
   const handleImageUpload = (key: string, imageUrl: string) => {
-    setThemeData(prev => ({ ...prev, [key]: imageUrl }));
+    setThemeData(prev => {
+      const newData = { ...prev, [key]: imageUrl };
+      console.log('Updated themeData:', newData);
+      return newData;
+    });
   };
 
   const handlePropertyChange = (key: string, value: string) => {
-    setThemeData(prev => ({ ...prev, [key]: value }));
-  };
-
-  const renderComponent = (key: string, componentType: string) => {
-    const style = {
-      backgroundColor: themeData[key + 'Background'],
-      color: themeData[key + 'Text'],
-    };
-
-    switch (componentType) {
-      case 'Toolbar':
-        return <Toolbar style={style} key={key} />;
-      case 'Tab':
-        return <Tab style={style} label={key} key={key} />;
-      case 'MessagePane':
-        return <MessagePane style={style} key={key} />;
-      case 'Statusbar':
-        return <Statusbar style={style} key={key} />;
-      default:
-        return null;
-    }
-  };
-
-  const renderLayout = (layout: LayoutItem) => {
-    return layout.children?.map((child: string) => {
-      const childLayout = blueprint?.layout[child];
-      if (!childLayout) return null;
-      if (childLayout.type === 'container') {
-        return (
-          <div key={child} className={child}>
-            {renderLayout(childLayout)}
-          </div>
-        );
-      } else if (childLayout.type === 'component') {
-        return renderComponent(child, childLayout.componentType!);
-      }
-      return null;
+    setThemeData(prev => {
+      const newData = { ...prev, [key]: value };
+      console.log('Updated themeData:', newData);
+      return newData;
     });
   };
+
+  useEffect(() => {
+    const applyStyles = (element: HTMLElement, styles: Record<string, string>) => {
+      Object.entries(styles).forEach(([key, value]) => {
+        element.style.backgroundColor = value; // Direct assignment
+        console.log(key, value);
+      });
+    };
+    const elements = document.querySelectorAll('.preview .theme-element');
+    elements.forEach((element) => {
+      const className = element.className.split(' ').find(cls => cls !== 'theme-element');
+      if (className) {
+        console.log(className);
+        const themeKey = className.replace(/-/g, '_');
+        if (themeData[themeKey]) {
+            console.log(element);
+            console.log(themeData[themeKey]);
+          applyStyles(element as HTMLElement, { backgroundColor: themeData[themeKey] });
+        }
+      }
+    });
+  }, [themeData]);
+
 
 
   const renderPreviewElement = (key: string, value: string) => {
@@ -139,41 +128,48 @@ const App: React.FC = () => {
     );
   };
 
-  return (
+
+
+ return (
     <div className="App">
-
         <div className="layout">
-
             <div className="nav">
                 <nav>nav</nav>
             </div>
-            <div className="sidebar">
-                {blueprint ? (
-                    <Sidebar
-                    blueprint={blueprint}
-                    themeData={themeData}
-                    handleColorChange={handleColorChange}
-                    handleImageUpload={handleImageUpload}
-                    handlePropertyChange={handlePropertyChange}
-                    />
-                ) : (
-                    <p>Loading...</p>
-                )}
-            </div>
+            <div className="sidebar-settings">   {blueprint ? (
+                <Sidebar
+                blueprint={blueprint}
+                themeData={themeData}
+                handleColorChange={handleColorChange}
+                handleImageUpload={handleImageUpload}
+                handlePropertyChange={handlePropertyChange}
+                />
+            ) : (
+                <p>Loading...</p>
+            )}</div>
+         
             <div className="content">
-                <h2>Preview TB Window</h2>
-                <div className="tb-layout">
-                    {blueprint && renderLayout(blueprint.layout.main)}
+            <h2>Blueprint/Layout</h2>
+            <div className="preview">
+                <div className="theme-element frame">Frame
+                    <div className="theme-element sidebar">Sidebar</div>
+                    <div className="theme-element toolbar">Toolbar
+                        <div className="theme-element field">Tab1</div>
+                        <div className="theme-element field">Tab2</div>
+                    </div>
+                    <div className="theme-element icons">Icons</div>
+                        <div className="theme-element popup">popup</div>
                 </div>
-                        
-                <h2>Template elements</h2>
-                <div className="preview">
-                    {Object.entries(themeData).map(([key, value]) => renderPreviewElement(key, value))}
-                </div>
+                {/* Add more elements as needed */}
+            </div>
+            <div className="preview">
+                {Object.entries(themeData).map(([key, value]) => renderPreviewElement(key, value))}
+            </div>
             </div>
         </div>
     </div>
   );
 };
+
 
 export default App;

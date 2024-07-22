@@ -60,7 +60,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   };
 
   return (
-    <div className="sidebar-settings">
+    <div>
       <h3>Coloring</h3>
       {Object.entries(blueprint.colors).map(([key, value]) => renderElement(key, value.type))}
       <h3>Images</h3>

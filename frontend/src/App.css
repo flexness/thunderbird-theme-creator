@@ -1,3 +1,8 @@
+body {
+  margin:0;
+  padding:0;
+  word-break:break-all;
+}
 .App {
     text-align: center;
     margin-top: 50px;
@@ -7,6 +12,7 @@
   }
   
   .preview {
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -28,18 +34,17 @@
 .layout {
   display: flex;
   gap: 10px;
-  margin: 10px;
   flex-direction: row;
 }
 .nav {
-  width: 100vW;
+  width: 100vw;
   text-align: left;
   background-color: aquamarine;
   position: fixed;
   top:0;
   height: 42px;
 }
-.sidebar {
+.sidebar-settings {
   width: 300px;
   text-align: left;
   background-color: bisque;
@@ -57,4 +62,15 @@
   
   border-bottom: 1px dashed #ccc;
   display: flex;
+}
+.frame {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+.sidebar {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
 }
