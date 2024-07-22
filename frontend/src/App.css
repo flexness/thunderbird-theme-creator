@@ -1,6 +1,9 @@
 .App {
     text-align: center;
     margin-top: 50px;
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
   }
   
   .preview {
@@ -11,8 +14,9 @@
   }
   
   .preview-element {
-    width: 150px;
-    height: 100px;
+    margin: 10px;
+    width: 100px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,4 +24,37 @@
     border-radius: 4px;
     text-align: center;
   }
+
+.layout {
+  display: flex;
+  gap: 10px;
+  margin: 10px;
+  flex-direction: row;
+}
+.nav {
+  width: 100vW;
+  text-align: left;
+  background-color: aquamarine;
+  position: fixed;
+  top:0;
+  height: 42px;
+}
+.sidebar {
+  width: 300px;
+  text-align: left;
+  background-color: bisque;
+  font-size: 12px;
+}
+.content {
+  flex-grow: 1;
+  padding: 10px;
+  background-color: aliceblue;
+}
+.sidebar-element {
+  padding: 6px;
+  align-items: center;
+  justify-content: space-between;
   
+  border-bottom: 1px dashed #ccc;
+  display: flex;
+}
