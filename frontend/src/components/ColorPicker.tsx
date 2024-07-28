@@ -17,7 +17,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ defaultColor, onColorChange }
     onColorChange(e.target.value);
   };
 
-  return <input type="color" value={color} onChange={handleChange} />;
+  return <input type="color" className='bg-transparent' value={color} onChange={handleChange} />;
 };
 
 export default ColorPicker;

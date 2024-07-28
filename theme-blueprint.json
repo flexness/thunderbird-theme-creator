@@ -40,8 +40,7 @@
   "colors": {
     "frame": { "type": "color", "default": "#ffffff" },
     "frame_inactive": { "type": "color", "default": "#cccccc" },
-    "frame_attention": { "type": "color", "default": "#ff0000" },
-    "icons": { "type": "color", "default": "#cccccc" },
+    "icons": { "type": "color", "default": "#ffcc00" },
     "icons_attention": { "type": "color", "default": "#cccccc" },
     "sidebar": { "type": "color", "default": "#cccccc" },
     "sidebar_border": { "type": "color", "default": "#cccccc" },
@@ -71,14 +70,16 @@
     "popup_highlight": { "type": "color", "default": "#ffcc00" },
     "popup_highlight_text": { "type": "color", "default": "#000000" },
     "popup_text": { "type": "color", "default": "#000000" },
-    "tab_line": { "type": "color", "default": "#000000" },
-    "tab_text": { "type": "color", "default": "#000000" },
-    "tab_selected": { "type": "color", "default": "#000000" },
-    "tab_background_text": { "type": "color", "default": "#ff0000" },
-    "tab_loading": { "type": "color", "default": "#00ff00" },
-    "tab_selected_attention": { "type": "color", "default": "#ff0000" },
     "tab_background_separator": { "type": "color", "default": "#cccccc" },
-    "tab_loading_fill": { "type": "color", "default": "#00ff00" }
+    "tab_background_text": { "type": "color", "default": "#ff0000" },
+    "tab_line": { "type": "color", "default": "#000000" },
+    "tab_loading": { "type": "color", "default": "#00ff00" },
+    "tab_selected": { "type": "color", "default": "#ffcc00" },
+    "tab_text": { "type": "color", "default": "#000000" },
+    "bookmark_text": { "type": "color", "default": "#ebdbb2" },
+    "ntp_background": { "type": "color", "default": "#ebdbb2" },
+    "ntp_text": { "type": "color", "default": "#ebdbb2" }
+
   },
   "images": {
     "theme_frame": { "type": "image", "default": "" },
@@ -93,3 +94,4 @@
     "light_color_scheme": { "type": "select", "default": "light" }
   }
 }
+
