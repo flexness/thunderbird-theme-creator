@@ -103,7 +103,7 @@ const App: React.FC = () => {
         !key.includes('tab_line')
       ) {
         element.style.backgroundColor = value; // Set background color
-      } else if (key.includes('text')) {
+      } else if (key.includes('text') || key.includes('icons')) {
         element.style.color = value; // Set text color
       } else if (key.includes('border') || key.includes('separator')) {
         element.style.borderColor = value; // Set border color
@@ -210,14 +210,14 @@ const App: React.FC = () => {
             <div className="preview">
                 <div className="theme-element frame">
                     <div className="theme-element w-8 h-full flex flex-col gap-2 py-2">
-                      <div className='flex flex-col gap-2'>
-                      <i className="fa fa-envelope"></i>
-                      <i className="fa fa-address-book"></i>
-                      <i className="fa fa-support"></i>
+                      <div className='theme-element flex flex-col gap-2'>
+                      <i className="fa fa-envelope theme-element icons_attention"></i>
+                      <i className="fa fa-address-book theme-element icons"></i>
+                      <i className="fa fa-support theme-element icons"></i>
                       </div>
                       <div className='mt-auto flex flex-col gap-2'>
-                      <i className="fa fa-cog"></i>
-                      <i className="fa fa-arrow-left"></i>
+                      <i className="fa fa-cog theme-element icons"></i>
+                      <i className="fa fa-arrow-left theme-element icons"></i>
                       </div>
                     </div>
                     <div className="main flex flex-col flex-grow">
@@ -239,16 +239,13 @@ const App: React.FC = () => {
                           <div className="theme-element tab tab_loading"><i className="fa fa-cog"></i> Tab:loading</div>
                       </div>
                       <div className="right-content h-full">
-                        <div className="theme-element sidebar">
+                        <div className="theme-element sidebar sidebar_text sidebar_border">
 
-                      <button type="button" className="theme-element toolbar_field">Toolbar/Button</button>
-                      <button type="button" className="theme-element toolbar_field button_background_hover">Toolbar/Button:hover</button>
-                      <button type="button" className="theme-element toolbar_field button_background_active">Toolbar/Button:active</button>
                       <div className="theme-element toolbar">Toolbar/Menu
                       </div>
-                          <ul className='p-1'>
+                          <ul className=''>
                                 <li className="">mail1@mail.com </li>
-                                <li className="">folder1</li>
+                                <li className="theme-element sidebar_highlight sidebar_highlight_border sidebar_highlight_text">highlighted</li>
                                 <li className="">folder2</li>
                                 <li className="">folder3</li>
                                 <li className="">folder4</li>
@@ -271,7 +268,14 @@ const App: React.FC = () => {
                         <div className="theme-element toolbar">
                       <div className="theme-element toolbar_field search p-1 toolbar_text">
                         <input type="text" className="theme-element border w-96 toolbar_field_border_focus toolbar_field_border focus my-2" placeholder="Search" />
-                      </div>
+                      
+                       </div>  
+                      <div className="theme-element toolbar_field search p-1 toolbar_text">
+                      <button type="button" className="theme-element toolbar_field">Toolbar/Button</button>
+                      <button type="button" className="theme-element toolbar_field button_background_hover">Toolbar/Button:hover</button>
+                      <button type="button" className="theme-element toolbar_field button_background_active">Toolbar/Button:active</button>
+                    
+                      </div>  
                         </div>
                           <p>mails-list</p>
                           <ul>

@@ -142,9 +142,7 @@ ul, li {
 .sidebar ul {
   margin-bottom: 10px;
 }
-.sidebar ul li:not(:first-child) {
-  margin-left: 10px;
-}
+
 .toolbar-skeleton {
   background-color: beige;
   height: 10px;
@@ -160,12 +158,10 @@ button:hover {
   background-color: #04AA6D;
   color: white;
 }
-.sidebar_border {
+.sidebar_border:nth-last-of-type(1) {
   border-bottom: 0px !important;
   border-left: 0px !important;
   border-right: 0px !important;
-}
-.tab_line {
 }
 
 .toolbar_bottom_separator {
