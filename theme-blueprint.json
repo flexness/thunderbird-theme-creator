@@ -70,7 +70,7 @@
     "popup_highlight": { "type": "color", "default": "#5294E2" },
     "popup_highlight_text": { "type": "color", "default": "#FFFFFF" },
     "popup_text": { "type": "color", "default": "#5C616C" },
-    "tab_background_separator": { "type": "color", "default": "rgba(255, 255, 255, 0.5)" },
+    "tab_background_separator": { "type": "color", "default": "#5C616C" },
     "tab_background_text": { "type": "color", "default": "#AFB8C6" },
     "tab_line": { "type": "color", "default": "#5294E2" },
     "tab_loading": { "type": "color", "default": "#ffcc00" },

@@ -32,6 +32,9 @@ const Sidebar: React.FC<SidebarProps> = ({
   toggleSection
 }) => {
 
+
+
+  
   const renderElement = (key: string, type: string) => {
     if (type === 'color') {
       const label = key.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
@@ -62,8 +65,6 @@ const Sidebar: React.FC<SidebarProps> = ({
     }
     return null;
   };
-console.log('Blueprint:', blueprint);
-console.log('ThemeData:', themeData);
   return (
     <div>
       <h3>Coloring</h3>

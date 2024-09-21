@@ -116,7 +116,6 @@ const App: React.FC = () => {
         element.style.borderTop = '1px solid';
         element.style.borderColor = value; // Set border color
       }
-      console.log(key, value);
     });
   };
   useEffect(() => {
@@ -126,7 +125,7 @@ const App: React.FC = () => {
       classNames.forEach((className) => {
         const themeKey = className.replace(/-/g, '_');
         if (themeData[themeKey]) {
-          console.log(`Applying style to ${className}:`, themeData[themeKey]);
+          // console.log(`Applying style to ${className}:`, themeData[themeKey]);
           applyStyles(element as HTMLElement, { [themeKey]: themeData[themeKey] });
         }        
         addFocusAndHoverListeners(element as HTMLElement, themeData);
@@ -206,8 +205,8 @@ const App: React.FC = () => {
             )}</div>
          
             <div className="content">
-            <h2>Blueprint/Layout</h2>
-            <div className="preview">
+              <h2>Blueprint/Layout</h2>
+              <div className="preview">
                 <div className="theme-element frame">
                     <div className="theme-element w-8 h-full flex flex-col gap-2 py-2">
                       <div className='theme-element flex flex-col gap-2'>
@@ -265,18 +264,16 @@ const App: React.FC = () => {
                           </ul>
                         </div>
                         <div className="tab-content ">
-                        <div className="theme-element toolbar">
-                      <div className="theme-element toolbar_field search p-1 toolbar_text">
-                        <input type="text" className="theme-element border w-96 toolbar_field_border_focus toolbar_field_border focus my-2" placeholder="Search" />
-                      
-                       </div>  
-                      <div className="theme-element toolbar_field search p-1 toolbar_text">
-                      <button type="button" className="theme-element toolbar_field">Toolbar/Button</button>
-                      <button type="button" className="theme-element toolbar_field button_background_hover">Toolbar/Button:hover</button>
-                      <button type="button" className="theme-element toolbar_field button_background_active">Toolbar/Button:active</button>
-                    
-                      </div>  
-                        </div>
+                          <div className="theme-element toolbar">
+                            <div className="theme-element toolbar_field search p-1 toolbar_text">
+                              <input type="text" className="theme-element border w-96 toolbar_field_border_focus toolbar_field_border focus my-2" placeholder="Search" />
+                            </div>  
+                            <div className="theme-element toolbar_field search p-1 toolbar_text">
+                              <button type="button" className="theme-element ">Toolbar/Button</button>
+                              <button type="button" className="theme-element toolbar_field button_background_hover">Toolbar/Button:hover</button>
+                              <button type="button" className="theme-element toolbar_field button_background_active">Toolbar/Button:active</button>
+                            </div>  
+                          </div>
                           <p>mails-list</p>
                           <ul>
                             <li>mail</li>
